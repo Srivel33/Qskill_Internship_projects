@@ -121,7 +121,7 @@ The project generates the following visualizations:
 ## Project Structure
 
 ```
-Project-1_Smartphone-Analysis
+Project-1_Data-Analysis
 │
 ├── smartphone_analysis.py
 ├── mobile_phone datas.xlsx
