@@ -181,6 +181,16 @@ Through this project, I gained practical experience in:
 - Project Development and Documentation
 
 ---
+## Project Visualizations
+
+### Brand Price Analysis
+![Brand Price](charts/top_10_brands_by_average_price.png)
+
+### Brand Rating Analysis
+![Brand Rating](charts/top_10_brands_by_average_rating.png)
+
+### Correlation Heatmap
+![Heatmap](charts/correlation_heatmap.png)
 
 ## Author
 
