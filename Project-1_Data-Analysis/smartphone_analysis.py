@@ -10,7 +10,7 @@ import seaborn as sns
 
 sns.set_theme(style="whitegrid")
 
-DATA_FILE = "mobile_phone datas.xlsx"
+DATA_FILE = "mobile_phone_dataset.xlsx"
 CHART_FOLDER = "charts"
 
 
