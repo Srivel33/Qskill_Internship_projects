@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matrix Operations Tool</title>
+  <meta name="description" content="A premium, interactive Matrix Operations Tool. Perform matrix addition, subtraction, multiplication, transposition, and determinant calculation with real-time visualization." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+<!-- Removed CRT scanline overlay -->
+
+<!-- ═══════════════════════════════════════════
+     BOOT SCREEN
+     ═══════════════════════════════════════════ -->
+<div id="boot-screen">
+  <canvas id="rain-canvas"></canvas>
+
+  <div id="terminal-box">
+    <div id="terminal-lines"></div>
+    <span id="terminal-cursor">█</span>
+  </div>
+
+  <div id="boot-title" class="hidden">
+    <div class="bt-hex">
+      <img src="{{ url_for('static', filename='logo.png') }}" class="matrix-logo-icon" width="64" height="64" alt="Logo" />
+    </div>
+    <div class="bt-name">Matrix Operations Tool</div>
+    <div class="bt-sub">ADVANCED MATRIX COMPUTATION ENGINE</div>
+    <div class="bt-hint">Initializing interface...</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     MAIN APP
+     ═══════════════════════════════════════════ -->
+<div id="main-app" class="hidden">
+
+  <!-- HEADER -->
+  <header id="app-header">
+    <div class="hdr-brand">
+      <span class="brand-hex">
+        <img src="{{ url_for('static', filename='logo.png') }}" class="matrix-logo-icon" width="32" height="32" alt="Logo" />
+      </span>
+      <div>
+        <div class="brand-name">Matrix Operations Tool</div>
+        <div class="brand-sub">COMPUTATION ENGINE</div>
+      </div>
+    </div>
+
+    <nav class="step-track" aria-label="Steps">
+      <div class="step-node active" id="sn-1">
+        <span class="sn-num">01</span>
+        <span class="sn-lbl">DIMENSIONS</span>
+      </div>
+      <div class="step-bar" id="sb-1"></div>
+      <div class="step-node" id="sn-2">
+        <span class="sn-num">02</span>
+        <span class="sn-lbl">DATA</span>
+      </div>
+      <div class="step-bar" id="sb-2"></div>
+      <div class="step-node" id="sn-3">
+        <span class="sn-num">03</span>
+        <span class="sn-lbl">EXECUTE</span>
+      </div>
+    </nav>
+
+    <div class="hdr-right">
+      <button class="btn-log" id="btn-log" onclick="toggleHistory()">
+        ⌨ LOG <span class="log-count" id="log-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="app-main">
+
+    <!-- ─────────────────────────────────────
+         STAGE 1 · DIMENSIONS
+    ───────────────────────────────────── -->
+    <section id="stage-1" class="stage active">
+      <p class="eyebrow">// STEP 01</p>
+      <h1 class="stage-title">DIMENSION FORGE</h1>
+      <p class="stage-desc">Set the size of your matrices. Maximum 6 × 6.</p>
+
+      <div class="dim-wrap">
+        <!-- Matrix A -->
+        <div class="dim-card">
+          <div class="dim-label">MATRIX <span class="ltr-a">A</span></div>
+          <div class="dim-controls">
+            <div class="dim-row">
+              <span class="dim-axis-label">ROWS</span>
+              <div class="ctr-group">
+                <button class="ctr-btn" onclick="changeDim('a','rows',-1)" aria-label="Decrease rows A">−</button>
+                <span class="ctr-val" id="val-a-rows">3</span>
+                <button class="ctr-btn" onclick="changeDim('a','rows',1)" aria-label="Increase rows A">+</button>
+              </div>
+            </div>
+            <div class="dim-row">
+              <span class="dim-axis-label">COLS</span>
+              <div class="ctr-group">
+                <button class="ctr-btn" onclick="changeDim('a','cols',-1)" aria-label="Decrease cols A">−</button>
+                <span class="ctr-val" id="val-a-cols">3</span>
+                <button class="ctr-btn" onclick="changeDim('a','cols',1)" aria-label="Increase cols A">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="dot-grid" id="dot-a"></div>
+        </div>
+
+        <div class="dim-sep">
+          <div class="sep-line"></div>
+          <span class="sep-ico">⇄</span>
+          <div class="sep-line"></div>
+        </div>
+
+        <!-- Matrix B -->
+        <div class="dim-card">
+          <div class="dim-label">MATRIX <span class="ltr-b">B</span></div>
+          <div class="dim-controls">
+            <div class="dim-row">
+              <span class="dim-axis-label">ROWS</span>
+              <div class="ctr-group">
+                <button class="ctr-btn" onclick="changeDim('b','rows',-1)" aria-label="Decrease rows B">−</button>
+                <span class="ctr-val" id="val-b-rows">3</span>
+                <button class="ctr-btn" onclick="changeDim('b','rows',1)" aria-label="Increase rows B">+</button>
+              </div>
+            </div>
+            <div class="dim-row">
+              <span class="dim-axis-label">COLS</span>
+              <div class="ctr-group">
+                <button class="ctr-btn" onclick="changeDim('b','cols',-1)" aria-label="Decrease cols B">−</button>
+                <span class="ctr-val" id="val-b-cols">3</span>
+                <button class="ctr-btn" onclick="changeDim('b','cols',1)" aria-label="Increase cols B">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="dot-grid" id="dot-b"></div>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="proceedToEntry()">
+        BUILD MATRICES <span class="arr">→</span>
+      </button>
+    </section>
+
+    <!-- ─────────────────────────────────────
+         STAGE 2 · DATA ENTRY
+    ───────────────────────────────────── -->
+    <section id="stage-2" class="stage">
+      <p class="eyebrow">// STEP 02</p>
+      <h1 class="stage-title">DATA ENTRY</h1>
+      <p class="stage-desc">Fill values. Use arrow keys or Tab to move between cells.</p>
+
+      <div class="entry-wrap">
+        <!-- Matrix A block -->
+        <div class="entry-block">
+          <div class="entry-hdr">
+            <div class="entry-lbl">
+              MATRIX <span class="ltr-a">A</span>
+              <span class="sz-badge badge-a" id="badge-a">3×3</span>
+            </div>
+            <button class="btn-rnd rnd-a" onclick="randomFill('a')">⚡ RANDOM</button>
+          </div>
+          <div class="m-grid" id="grid-a" role="grid" aria-label="Matrix A input grid"></div>
+          <div class="ready-row" id="ready-a">
+            <span class="ready-dot"></span> ALL CELLS FILLED
+          </div>
+        </div>
+
+        <!-- Matrix B block -->
+        <div class="entry-block">
+          <div class="entry-hdr">
+            <div class="entry-lbl">
+              MATRIX <span class="ltr-b">B</span>
+              <span class="sz-badge badge-b" id="badge-b">3×3</span>
+            </div>
+            <button class="btn-rnd rnd-b" onclick="randomFill('b')">⚡ RANDOM</button>
+          </div>
+          <div class="m-grid" id="grid-b" role="grid" aria-label="Matrix B input grid"></div>
+          <div class="ready-row" id="ready-b">
+            <span class="ready-dot"></span> ALL CELLS FILLED
+          </div>
+        </div>
+      </div>
+
+      <div class="stage-nav">
+        <button class="btn-ghost" onclick="goToStage(1)">← BACK</button>
+        <button class="btn-primary" onclick="proceedToOps()">
+          SELECT OPERATION <span class="arr">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────
+         STAGE 3 · EXECUTE
+    ───────────────────────────────────── -->
+    <section id="stage-3" class="stage">
+      <p class="eyebrow">// STEP 03</p>
+      <h1 class="stage-title">EXECUTE OPERATION</h1>
+      <p class="stage-desc">Select an operation then fire. <kbd>Ctrl + Enter</kbd> to execute.</p>
+
+      <div class="ops-row">
+        <button class="op-card" data-op="add" onclick="pickOp('add')" data-tooltip="Requires same dimensions: rows(A)=rows(B) and cols(A)=cols(B)">
+          <span class="op-sym">+</span>
+          <span class="op-nm">ADD</span>
+          <span class="op-info">A + B</span>
+        </button>
+        <button class="op-card" data-op="subtract" onclick="pickOp('subtract')" data-tooltip="Requires same dimensions: rows(A)=rows(B) and cols(A)=cols(B)">
+          <span class="op-sym">−</span>
+          <span class="op-nm">SUBTRACT</span>
+          <span class="op-info">A − B</span>
+        </button>
+        <button class="op-card" data-op="multiply" onclick="pickOp('multiply')" data-tooltip="Requires cols(A) = rows(B)">
+          <span class="op-sym">×</span>
+          <span class="op-nm">MULTIPLY</span>
+          <span class="op-info">A × B</span>
+        </button>
+        <button class="op-card" data-op="transpose" onclick="pickOp('transpose')" data-tooltip="No preconditions (works on any shape)">
+          <span class="op-sym">ᵀ</span>
+          <span class="op-nm">TRANSPOSE</span>
+          <span class="op-info">Aᵀ &amp; Bᵀ</span>
+        </button>
+        <button class="op-card" data-op="determinant" onclick="pickOp('determinant')" data-tooltip="Requires square matrices: rows(M) = cols(M)">
+          <span class="op-sym">|·|</span>
+          <span class="op-nm">DETERMINANT</span>
+          <span class="op-info">det(A) &amp; det(B)</span>
+        </button>
+        <button class="op-card" data-op="inverse" onclick="pickOp('inverse')" data-tooltip="Requires square and non-singular matrices (det ≠ 0)">
+          <span class="op-sym">⁻¹</span>
+          <span class="op-nm">INVERSE</span>
+          <span class="op-info">A⁻¹ &amp; B⁻¹</span>
+        </button>
+        <button class="op-card" data-op="rank_trace" onclick="pickOp('rank_trace')" data-tooltip="Rank: any shape. Trace: square matrix only">
+          <span class="op-sym">rk/tr</span>
+          <span class="op-nm">RANK &amp; TRACE</span>
+          <span class="op-info">rk(M) &amp; tr(M)</span>
+        </button>
+      </div>
+
+      <div class="exec-bar">
+        <button class="btn-ghost" onclick="goToStage(2)">← BACK</button>
+        <button class="btn-execute" id="btn-execute" onclick="runOperation()" disabled>
+          <span id="exec-spin" class="spin hidden">◌</span>
+          EXECUTE <span class="arr">⚡</span>
+        </button>
+      </div>
+
+      <!-- Result panel -->
+      <div id="result-panel" class="result-panel hidden">
+        <div class="res-top">
+          <div class="res-label" id="res-label">RESULT</div>
+          <div class="res-shape" id="res-shape"></div>
+        </div>
+        <div id="res-body" class="res-body"></div>
+        <div class="res-footer">
+          <button class="btn-ghost" onclick="resetAll()">⟳ NEW CALCULATION</button>
+          <button class="btn-copy" id="btn-copy" onclick="copyResult()">⎘ COPY RESULT</button>
+        </div>
+      </div>
+
+      <!-- Error panel -->
+      <div id="err-panel" class="err-panel hidden">
+        <span class="err-ico">⚠</span>
+        <span id="err-msg"></span>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HISTORY SIDEBAR
+═══════════════════════════════════════════ -->
+<aside id="hist-panel" class="hist-panel" aria-label="Operation history">
+  <div class="hist-top">
+    <span class="hist-title">// OPERATION LOG</span>
+    <button class="hist-close" onclick="toggleHistory()" aria-label="Close log">✕</button>
+  </div>
+  <div class="hist-body" id="hist-body">
+    <p class="hist-empty">No operations yet.<br>Results appear here.</p>
+  </div>
+  <div class="hist-foot">
+    <button class="btn-clr" onclick="clearHistory()">CLEAR LOG</button>
+  </div>
+</aside>
+<div id="hist-backdrop" class="hist-backdrop hidden" onclick="toggleHistory()"></div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
