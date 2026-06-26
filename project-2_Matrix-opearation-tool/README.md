@@ -147,7 +147,21 @@ http://127.0.0.1:5000
 
 ---
 
+🎯 Learning Outcomes
 
+Through this project, I learned:
+
+Python Programming
+Matrix Operations
+NumPy
+Flask Web Development
+HTML, CSS and JavaScript Integration
+Client-Server Communication
+Input Validation
+Error Handling
+Responsive UI Design
+Project Organization
+GitHub Project Management
 
 # 👨‍💻 Developer
 
