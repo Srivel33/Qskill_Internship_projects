@@ -144,6 +144,11 @@ http://127.0.0.1:5000
 
 ---
 
+## 🌐 Live Demo
+
+https://matrix-operations-tool.onrender.com
+[![Live Demo](https://img.shields.io/badge/Live-Demo-green?style=for-the-badge)](https://matrix-operations-tool.onrender.com)
+
 # 🎯 Learning Outcomes
 
 Through this project, I learned:
