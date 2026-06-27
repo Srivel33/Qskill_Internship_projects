@@ -25,9 +25,6 @@ The console application is the original internship project.
 * Matrix Multiplication
 * Matrix Transpose
 * Matrix Determinant
-* Matrix Inverse
-* Matrix Rank
-* Matrix Trace
 * Input Validation
 * Error Handling
 * Menu Driven Interface
