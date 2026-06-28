@@ -95,8 +95,8 @@ Open your browser and navigate to: `http://127.0.0.1:5000/`
 ![Home Page](https://github.com/Srivel33/Qskill_Internship_projects/blob/main/project-3_Sentiment-Analysis/static/screenshots/1.Home_page.png)
 ### Result Page
 ![Result page](https://github.com/Srivel33/Qskill_Internship_projects/blob/main/project-3_Sentiment-Analysis/static/screenshots/2.Result_page.png)
-### Histrey page
-![Histrey page](https://github.com/Srivel33/Qskill_Internship_projects/blob/main/project-3_Sentiment-Analysis/static/screenshots/3.Histrey_page.png)
+### History page
+![History page](https://github.com/Srivel33/Qskill_Internship_projects/blob/main/project-3_Sentiment-Analysis/static/screenshots/3.Histrey_page.png)
 
 ## 🚀 Deployment
 
