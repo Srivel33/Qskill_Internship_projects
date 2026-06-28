@@ -92,10 +92,9 @@ Open your browser and navigate to: `http://127.0.0.1:5000/`
 
 ## 📸 Screenshots
 
-*   `static/screenshots/home.png`
-*   `static/screenshots/positive_result.png`
-*   `static/screenshots/negative_result.png`
-*   `static/screenshots/neutral_result.png`
+*   `static/screenshots/1.Home_page.png`
+*   `static/screenshots/2.Result_page.png`
+*   `static/screenshots/3.Histrey_page.png`
 
 ## 🚀 Deployment
 
