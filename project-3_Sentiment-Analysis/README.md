@@ -48,7 +48,6 @@ Project-3_Sentiment-Analysis/
 ├── sentiment_analyzer.py      # Core NLP sentiment analysis logic
 ├── requirements.txt           # Python dependencies
 ├── Procfile                   # Configuration for Render deployment
-├── .gitignore                 # Git ignore rules
 ├── README.md                  # Project documentation
 │
 ├── templates/
@@ -57,7 +56,6 @@ Project-3_Sentiment-Analysis/
 └── static/
     ├── style.css              # Custom styling (Aurora Emotion Theme)
     ├── app.js                 # Client-side interactivity and AJAX
-    ├── logo.png               # Project Logo
     └── screenshots/           # Application screenshots for showcase
 ```
 
@@ -114,6 +112,7 @@ This project is configured for easy deployment on platforms like [Render](https:
 
 ## 👨‍💻 Author
 
-**[Your Name]**
-*   LinkedIn: [Your LinkedIn Profile URL]
-*   GitHub: [Your GitHub Profile URL]
+** Srivel.T **
+*   Artificial Intelligence and Machine Learning Student
+*   SNS College of Technology
+*   Python Development Intern – QSkill
