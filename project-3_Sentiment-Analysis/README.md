@@ -104,8 +104,8 @@ This project is configured for easy deployment on platforms like [Render](https:
 
 ## 🌐 Live Demo
 
-Deployed on Render
-![Deploy](https://sentiment-analysis-tool-brx7.onrender.com)
+Try the live application here:
+🔗 https://sentiment-analysis-tool-brx7.onrender.com
 
 ## 👨‍💻 Author
 
