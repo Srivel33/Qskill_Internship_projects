@@ -65,8 +65,7 @@ Follow these steps to run the project locally on your machine.
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/yourusername/Project-3_Sentiment-Analysis.git
-cd Project-3_Sentiment-Analysis
+ https://github.com/Srivel33/Qskill_Internship_projects/tree/main/project-3_Sentiment-Analysis
 ```
 
 **2. Create a virtual environment**
@@ -93,7 +92,6 @@ Open your browser and navigate to: `http://127.0.0.1:5000/`
 
 ## 📸 Screenshots
 
-*(Add your screenshots here once you have them)*
 *   `static/screenshots/home.png`
 *   `static/screenshots/positive_result.png`
 *   `static/screenshots/negative_result.png`
@@ -103,12 +101,10 @@ Open your browser and navigate to: `http://127.0.0.1:5000/`
 
 This project is configured for easy deployment on platforms like [Render](https://render.com/). The included `Procfile` uses Gunicorn as the production WSGI server. 
 
-## 🔮 Future Improvements
+## 🌐 Live Demo
 
-*   Implement a database to save historical analysis across sessions.
-*   Add multilingual support for sentiment analysis.
-*   Allow file uploads (e.g., `.txt`, `.csv`) for batch analysis.
-*   Integrate more advanced NLP models (like VADER or transformer models) for higher accuracy.
+Deployed on Render
+https://your-render-link.onrender.com
 
 ## 👨‍💻 Author
 
