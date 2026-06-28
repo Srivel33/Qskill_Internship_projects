@@ -92,7 +92,7 @@ Open your browser and navigate to: `http://127.0.0.1:5000/`
 
 ## 📸 Screenshots
 
-https://github.com/Srivel33/Qskill_Internship_projects/blob/main/project-3_Sentiment-Analysis/static/screenshots/1.Home_page.png
+![Home Page](https://github.com/Srivel33/Qskill_Internship_projects/blob/main/project-3_Sentiment-Analysis/static/screenshots/1.Home_page.png)
 
 ## 🚀 Deployment
 
